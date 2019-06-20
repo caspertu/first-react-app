@@ -4,28 +4,36 @@ import PropTypes from 'prop-types';
 class ClickCounter extends Component {
     constructor(props) {
         super(props);
-        this.onClickIncreaseButton = this.onClickIncreaseButton.bind(this);
-        this.onClickDecreaseButton = this.onClickDecreaseButton.bind(this);
+        this.onClickIncrementButton = this.onClickIncrementButton.bind(this);
+        this.onClickDecrementButton = this.onClickDecrementButton.bind(this);
         this.state = {
             count: props.initValue || 0
         };
     }
 
-    onClickIncreaseButton() {
-        this.setState({count: this.state.count + 1});
+    updateCounter(isIncrement) {
+        const previousValue = this.state.count
+        const newValue = isIncrement ? this.state.count + 1 : this.state.count - 1
+        this.setState({ count: newValue })
+        this.props.onUpdate(previousValue, newValue)
     }
 
-    onClickDecreaseButton() {
-        this.setState({count: this.state.count - 1});
+    onClickIncrementButton() {
+        this.updateCounter(true)
     }
+
+    onClickDecrementButton() {
+        this.updateCounter(false)
+    }
+
 
     render() {
         const counterStyle = { margin: '16px' }
         const { Caption } = this.props;
         return (
             <div style={counterStyle}>
-                <button onClick={this.onClickIncreaseButton}>+</button>
-                <button onClick={this.onClickDecreaseButton}>-</button>
+                <button onClick={this.onClickIncrementButton}>+</button>
+                <button onClick={this.onClickDecrementButton}>-</button>
                 <span>{ Caption } Count: {this.state.count}</span>
             </div>
         );
@@ -38,7 +46,8 @@ ClickCounter.defaultProps = {
 
 ClickCounter.propTypes = {
     Caption: PropTypes.string.isRequired,
-    initValue: PropTypes.number
+    initValue: PropTypes.number,
+    onUpdate: PropTypes.func.isRequired
 };
 
 export default ClickCounter;
