@@ -7,7 +7,7 @@ class ClickCounter extends Component {
         this.onClickIncreaseButton = this.onClickIncreaseButton.bind(this);
         this.onClickDecreaseButton = this.onClickDecreaseButton.bind(this);
         this.state = {
-            count: 0
+            count: props.initValue || 0
         };
     }
 
@@ -20,9 +20,10 @@ class ClickCounter extends Component {
     }
 
     render() {
+        const counterStyle = { margin: '16px' }
         const { Caption } = this.props;
         return (
-            <div>
+            <div style={counterStyle}>
                 <button onClick={this.onClickIncreaseButton}>+</button>
                 <button onClick={this.onClickDecreaseButton}>-</button>
                 <span>{ Caption } Count: {this.state.count}</span>
@@ -31,8 +32,13 @@ class ClickCounter extends Component {
     }
 }
 
+ClickCounter.defaultProps = {
+    initValue: 10,
+};
+
 ClickCounter.propTypes = {
-    Caption: PropTypes.string.isRequired
-}
+    Caption: PropTypes.string.isRequired,
+    initValue: PropTypes.number
+};
 
 export default ClickCounter;
