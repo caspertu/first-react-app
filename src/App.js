@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ClickCounter from './ClickCounter';
+import ClickCounter from './components/ClickCounter';
 import './App.css';
 
 class App extends Component {
