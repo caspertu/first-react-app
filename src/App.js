@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ClickCounter from './components/ClickCounter';
+import Timer from './components/Timer';
 import './App.css';
 
 class App extends Component {
@@ -42,6 +43,7 @@ class App extends Component {
         <div>
           Total: { this.state.totalValue }
         </div>
+        <Timer/>
       </div>
     );
   }

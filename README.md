@@ -12,7 +12,7 @@ yarn install
 
 ### `yarn start`
 
-在开发模式启动应用
+以开发模式启动应用
 
 ## History
 
