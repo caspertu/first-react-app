@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import Menu from './recipe-app'
-import data from './recipe-app/data/recipes'
+// import Menu from './recipe-app'
+// import data from './recipe-app/data/recipes'
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 

@@ -5,7 +5,8 @@
   "dependencies": {
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
-    "react-scripts": "2.1.8"
+    "react-scripts": "2.1.8",
+    "remarkable": "^1.7.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -22,5 +23,5 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "proxy": "http://www.weather.com.cn/" 
+  "proxy": "http://www.weather.com.cn/"
 }
